@@ -1,7 +1,7 @@
 # elm-review-nobooleancase
 
-Prohibits using `case <boolean expression> of`, with a preference for using `if
-<expr> then <expr> else <expr>` for such cases.
+Prohibits using `case <boolean expression> of`, with a preference for using
+`if <expr> then <expr> else <expr>` for such cases.
 
 ## Configuration
 
