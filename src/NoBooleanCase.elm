@@ -1,5 +1,11 @@
 module NoBooleanCase exposing (rule)
 
+{-|
+
+@docs rule
+
+-}
+
 import Elm.Syntax.Expression as Expression exposing (Expression)
 import Elm.Syntax.Node as Node exposing (Node)
 import Elm.Syntax.Pattern as Pattern
@@ -9,6 +15,41 @@ import Review.Rule as Rule exposing (Error, Rule)
 import Util
 
 
+{-| Prohibits using `case <expr> of` when `<expr>` returns a boolean
+
+Expressions like
+
+    case some fun here of
+        True ->
+            doSomething
+
+        False ->
+            doSomethingElse
+
+can be rewritten to a slightly more natural `if .. then .. else ..` expression
+like so:
+
+    if some fun here then
+        doSomething
+
+    else
+        doSomethingElse
+
+This rule flags such expressions and proposes a fix to rewrite them accordingly.
+
+To use this rule, add it to your `elm-review` config like so:
+
+    module ReviewConfig exposing (config)
+
+    import NoBooleanCase
+    import Review.Rule exposing (Rule)
+
+    config : List Rule
+    config =
+        [ NoBooleanCase.rule
+        ]
+
+-}
 rule : Rule
 rule =
     Rule.newModuleRuleSchema "NoBooleanCase" ()
