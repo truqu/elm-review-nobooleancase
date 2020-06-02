@@ -66,7 +66,8 @@ makeError under =
     Review.Test.error
         { message = "Matching boolean values in a case .. of expression"
         , details =
-            [ "It's quite silly"
+            [ "There is nothing inherently wrong with matching boolean expressions using `case .. of`, however, Elm already has a specialized construct for exactly that purpose."
+            , "By using `if .. then .. else ..`, you use a construct that clearly signals the intent of making a boolean decision. It also happens to lead to less indentation/depth, and - if you care about such things - saves you a line of code."
             ]
         , under = under
         }
