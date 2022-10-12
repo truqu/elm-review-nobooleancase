@@ -3,7 +3,7 @@
     "name": "truqu/elm-review-nobooleancase",
     "summary": "Provides an elm-review rule to prohibit case..of on boolean expressions",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": ["NoBooleanCase"],
     "elm-version": "0.19.0 <= v < 0.20.0",
     "dependencies": {
